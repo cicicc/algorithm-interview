@@ -9,6 +9,9 @@ package cn.algorithm.sword.finger.offer;
  * 解题思路：
  * 从数组的右上角开始查找，即array[0][array[0].length-1],对于这个数来说，其左边的数都比他小，其下的数都比它大
  * 如果要查找的数大于此位置值，那么向下查找，如果要查找的数小于此位置值，那么向左查找
+ * <p>
+ * 复杂度分析：
+ * 时间复杂度 O(M+N),空间复杂度O(1)
  * @Author: HaiBo Chen
  * @Date: 2020/2/18
  * @Time: 5:33 下午
@@ -28,7 +31,7 @@ public class FindNumberInArray {
         int i = 0;
         int j = array[0].length - 1;
 
-        while (i < array.length && j >=0) {
+        while (i < array.length && j >= 0) {
             if (array[i][j] == target) {
                 return true;
             } else if (array[i][j] > target) {
