@@ -27,10 +27,9 @@ public class PrintListFromTailToHead {
 
         Stack<Integer> tempStack = new Stack<>();
         ListNode currentListNode = listNode;
-        tempStack.push(currentListNode.val);
-        while (currentListNode.next != null) {
-            currentListNode = currentListNode.next;
+        while (currentListNode != null) {
             tempStack.push(currentListNode.val);
+            currentListNode = currentListNode.next;
         }
 
         ArrayList<Integer> result = new ArrayList<>();
