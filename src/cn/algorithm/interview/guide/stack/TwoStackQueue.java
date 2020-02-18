@@ -1,4 +1,4 @@
-package cn.indispensable.algorithm.stack;
+package cn.algorithm.interview.guide.stack;
 
 import java.util.Stack;
 
