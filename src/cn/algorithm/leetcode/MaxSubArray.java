@@ -8,6 +8,10 @@ package cn.algorithm.leetcode;
  * 输入: [-2,1,-3,4,-1,2,1,-5,4],
  * 输出: 6
  * 解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+ * 解题思路：
+ * 使用变量MaxSum存储当前的最大值，另一个变量currentSum不停的累加数组中的每一个数，
+ * if(currentSum > maxSum) {maxSum = currentSum};
+ * if(currentSum <0){currentSum = 0};
  * @Author: HaiBo Chen
  * @Date: 2020/3/8
  * @Time: 3:09 下午
