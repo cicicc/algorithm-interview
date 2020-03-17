@@ -34,22 +34,28 @@ public class SellStockMaxProfit {
 
 
     public static int maxProfit(int[] prices) {
-        if (prices == null || prices.length < 2) {
+        if (prices == null || prices.length <= 1) {
             return 0;
         }
 
-        int[] diff = new int[prices.length - 1];
-        for (int i = 0; i < diff.length; i++) {
-            diff[i] = prices[i + 1] - prices[i];
+        int[] dp = new int[prices.length - 1];
+        // dp数组的第i个位置存放的是第i+1天和第i天股票的差值
+        for (int i = 0; i < dp.length; i++) {
+            dp[i] = prices[i + 1] - prices[i];
         }
-        int temp = Math.max(0, diff[0]);
-        int profile = temp;
-        for (int i = 1; i < diff.length; i++) {
-            temp = Math.max(temp + diff[i], 0);
-            profile = Math.max(temp, profile);
+        // 此时问题转换成了最大子序和问题
+        int maxProfit = 0;
+        int currentProfit = 0;
+        for (int i = 0; i < dp.length; i++) {
+            currentProfit += dp[i];
+            if (currentProfit > maxProfit) {
+                maxProfit = currentProfit;
+            }
+            if (currentProfit < 0) {
+                currentProfit = 0;
+            }
         }
-
-        return profile;
+        return maxProfit;
     }
 
 
